@@ -8,8 +8,8 @@ $filtered =  array(
 // var_dump 는 변수형을 출력해주는 함수이다.
 // var_dump(($_POST));
 $sql = "insert into topic(title, description, created) 
-values('{$_POST['title']}' , '{$_POST['description']}' , now())";
-$result = mysqli_query($conn, $sql);
+values('{$filtered['title']}' , '{$filtered['description']}' , now())";
+$result = mysqli_multi_query($conn, $sql);
 if($result === false){
     echo '저장하는데 니 비번털림 ㅅㄱㅋㅋ';
     error_log(mysqli_error($conn));
